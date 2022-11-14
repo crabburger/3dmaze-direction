@@ -1,16 +1,8 @@
-# mazify-3d
+# mazify-3d fork
 
-Maze editor and 3d maze map using A-Frame and Vue.js
-
-### Live maze game and and level editor
+Maze editor and 3d maze game using A-Frame and Vue.js
 
 
-
-### Installation
-
-
-
-### Local Development
 
 ### Links
 [A-Frame](https://aframe.io/)
