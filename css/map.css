@@ -180,6 +180,7 @@
 
 #app {
   display: flex;
+  justify-content: center;
 }
 
 .mazify-editor {
