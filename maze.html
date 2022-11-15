@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pit Mazify 3D | Explorer</title>
+  <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <script src="js/aframe-extras-v6.1.1.min.js"></script>
+  <script src="js/aframe-physics-system.min.js"></script>
+  <script src="js/multitouch-look-controls.js"></script>
+  <script src="js/mazify.js"></script>
+  <script src="js/player.js"></script>
+  <link rel="shortcut icon" href="#" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body style="background-color: #222222">
+  <div id="loader" class="lds-dual-ring centered"></div>
+
+  <!-- fog="type: exponential; color: #E6F7FD; density: 0.1" -->
+  <a-scene style="display: none;" renderer="antialias: true;
+  colorManagement: true;
+  sortObjects: true;" inspector="" physics="gravity: -9.8" keyboard-shortcuts="enterVR: false"
+    vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <img id="brick-01" src="assets/brick-02.jpg" />
+      <img id="start" src="assets/start.jpg" />
+      <img id="grd" src="assets/Ground_02.png" />
+      <img id="ngrd" src="assets/Ground_02_Nrm.png" />
+      <img id="sky" src="assets/sky360.jpg" />
+      <img id="water" src="assets/water.jpg" />
+      <img id="lawson" src="assets/coffeestation.png" />
+      <img id="firestation" src="assets/firestation2.png" />
+      <img id="townhall" src="assets/townhall.png" />
+      <img id="postoffice" src="assets/postoffice.png" />
+      <img id="e-jschool" src="assets/elementaryschool.png" />
+      <img id="factory" src="assets/factory.png" />
+      <img id="gas" src="assets/gasstation2.png" />
+      <img id="hospital" src="assets/hospital.png" />
+      <img id="library" src="assets/library.png" />
+      <img id="onsen" src="assets/onsen.png" />
+      <img id="shrine" src="assets/shrine.png" />
+      <img id="sushi" src="assets/sushi.png" />
+      <img id="policestation" src="assets/policestation.png" />
+      <img id="fork" src="assets/forkspoon3.png" />
+      <img id="7eleven" src="assets/11eleven.png" />
+      <img id="aeon" src="assets/shopping.png" />
+      <img id="cityhall" src="assets/cityhall.png" />
+      <img id="familymart" src="assets/familystore.png" />
+      <img id="museum" src="assets/museum.png" />
+      <img id="supermarket" src="assets/supermarket.png" />
+      <img id="atm" src="assets/atm.png" />
+      <img id="koban" src="assets/koban.png" />
+      <img id="highschool" src="assets/highschool.png" />
+      <img id="hotel" src="assets/hotel.png" />
+      <a-asset-item id="bananas" src="assets/bananas.glb"></a-asset-item>
+    </a-assets>
+    <!-- Lighting -->
+    <a-light type="ambient" color="#bbb" intensity="1"></a-light>
+    <a-light color="#ccc" position="0 30 0" distance="100" intensity="0.6" type="point"></a-light>
+    <a-light color="#ccc" position="3 10 -10" distance="50" intensity="0.6" type="point"></a-light>
+
+    <!-- sky -->
+    <a-sky src="#sky"></a-sky>
+    <!-- plane -->
+    <a-box id="wplane" static-body color="black" width="110" height="1" depth="90" position="0 -10 0" roughness="1">
+    </a-box>
+    <!-- player -->
+    <a-entity id="player" position="0 10.0 0" twoway-motion="speed: 35" movement-controls="speed: 0.2; controls: keyboard;"
+      kinematic-body="radius: 0.4; mass: 5" listener player>
+      <a-entity camera position="0 1.6 0" multitouch-look-controls look-controls="pointerLockEnabled: false;  reverseTouchDrag:  true">
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="mazewall" mazify></a-entity>
+
+  </a-scene>
+  <!-- The Modal -->
+  <div id="finishDialog" class="modal mazify" style="display: none;">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="cont()">&times;</span>
+        <h2>Congratulation</h2>
+      </div>
+      <div class="modal-body">
+        <p>You have found the bananas</p>
+      </div>
+      <div class="modal-footer">
+        <h3></h3>
+        <button class="button" onclick="window.close();">Close</button>
+        <!--button class="button" onclick="cont()">Continue</button-->
+      </div>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div id="restart" class="modal mazify" style="display: none;">
+    <!-- Modal content -->
+    <div class="rmodal-content">
+      <div class="rmodal-header">
+        <!--span class="close" onclick="cont()">&times;</span-->
+        <h2>OH NO</h2>
+      </div>
+      <div class="rmodal-body">
+        <p>You fell.</p>
+      </div>
+      <div class="rmodal-footer">
+        <h3></h3>
+        <button class="button" onclick="restart()">One more time</button>
+        <!--button class="button" onclick="cont()">Continue</button-->
+        <button class="buttonstop" onclick="window.close();">Stop</button>
+
+      </div>
+    </div>
+  </div>
+  <div id="intro1" class="gcontrol" style="display: none;">
+    <div class="intro-content">
+      <div class="intro-body">
+        <p>コントロール</p>
+        <img src="assets/start screen.png">
+      </div>
+      <div class="intro-footer">
+        <h3></h3>
+        <button class="button1" onclick="start()">Start</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function start() {
+      let hideintro = document.querySelector(".gcontrol")
+      hideintro.setAttribute("style", "display: none");
+    }
+
+    function restart() {
+      window.location.reload();
+    }
+  </script>
+</body>
+
+</html>

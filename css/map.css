@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.tile {
+  border: 0px solid #ffffff;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+
+.tile:hover {
+  border: 0px solid #d50000;
+}
+
+.tile-0 {
+  background-color: #ffffff;
+}
+
+.tile-wa {
+  background-color: #52270e;
+}
+
+.tile-ft {
+  background-image: url("../assets/bananas.jpg");
+  background-size: cover;
+}
+
+.tile-gr {
+  background-color: #a7a7a7;
+}
+
+.tile-pi {
+  background-color: #000000;
+}
+
+.tile-bl {
+  background-color: #df9712;
+}
+
+.tile-la {
+  background-image: url("../assets/coffeestation.png");
+  background-size: cover;
+}
+
+.tile-fs {
+  background-image: url("../assets/firestation2.png");
+  background-size: cover;
+}
+
+.tile-to {
+  background-image: url("../assets/townhall.png");
+  background-size: cover;
+}
+
+.tile-po {
+  background-image: url("../assets/postoffice.png");
+  background-size: cover;
+}
+
+.tile-sc {
+  background-image: url("../assets/elementaryschool.png");
+  background-size: cover;
+}
+
+.tile-fa {
+  background-image: url("../assets/factory.png");
+  background-size: cover;
+}
+
+.tile-gs {
+  background-image: url("../assets/gasstation2.png");
+  background-size: cover;
+}
+
+.tile-ho {
+  background-image: url("../assets/hospital.png");
+  background-size: cover;
+}
+
+.tile-li {
+  background-image: url("../assets/library.png");
+  background-size: cover;
+}
+
+.tile-on {
+  background-image: url("../assets/onsen.png");
+  background-size: cover;
+}
+
+.tile-sh {
+  background-image: url("../assets/shrine.png");
+  background-size: cover;
+}
+
+.tile-su {
+  background-image: url("../assets/sushi.png");
+  background-size: cover;
+}
+
+.tile-ps {
+  background-image: url("../assets/policestation.png");
+  background-size: cover;
+}
+
+.tile-fo {
+  background-image: url("../assets/forkspoon3.png");
+  background-size: cover;
+}
+
+.tile-7e {
+  background-image: url("../assets/11eleven.png");
+  background-size: cover;
+}
+
+.tile-ae {
+  background-image: url("../assets/shopping.png");
+  background-size: cover;
+}
+
+.tile-ch {
+  background-image: url("../assets/cityhall.png");
+  background-size: cover;
+}
+
+.tile-fm {
+  background-image: url("../assets/familystore.png");
+  background-size: cover;
+}
+
+.tile-mu {
+  background-image: url("../assets/museum.png");
+  background-size: cover;
+}
+
+.tile-ko {
+  background-image: url("../assets/koban.png");
+  background-size: cover;
+}
+
+.tile-sm {
+  background-image: url("../assets/supermarket.png");
+  background-size: cover;
+}
+
+.tile-at {
+  background-image: url("../assets/atm.png");
+  background-size: cover;
+}
+
+.tile-hs {
+  background-image: url("../assets/highschool.png");
+  background-size: cover;
+}
+
+.tile-hl {
+  background-image: url("../assets/hotel.png");
+  background-size: cover;
+}
+
+.tile-st {
+  background-color: #2e7d32;
+  animation: blinker 2s linear infinite;
+  background: #2e7d32;
+  color: rgb(14, 78, 5);
+  width: 30px;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.tile-f {
+  background-color: #b71c1c;
+}
+
+#app {
+  display: flex;
+}
+
+.mazify-editor {
+  width: 10vw;
+  display: flex;
+  flex-flow: column;
+}
+
+#container {
+  background-color: #ddd;
+  width: 630px;
+  height: 630px;
+  transform: translate(0%, 0%);
+}
+
+.mapwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-salmon {
+  background-color: red;
+  width: 10vw;
+  height: 6vh;
+  font-size: 1.4vw;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-blue {
+  background-color: lightblue;
+  font-size: 1.2vw;
+  width: 10vw;
+
+}
+
+.city1 {
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  gap: 2px;
+}
+
+.city2 {
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  gap: 2px;
+}
+
+.city3 {
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  gap: 2px;
+}
+
+.city4 {
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  gap: 2px;
+}
+
+.start {
+  height: 12vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+}
+
+.link {
+  width: 25vw;
+  display: flex;
+  flex-flow: column;
+}
+
+.tools {
+  display: flex;
+  width: 25vw;
+  flex-wrap: wrap;
+  gap: 5px;
+}

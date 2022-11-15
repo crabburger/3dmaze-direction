@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mazify 3D | Guide</title>
+  <meta name="description" content="Mazify 3D Guide" />
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <link rel="stylesheet" href="css/map.css" />
+  <link rel="shortcut icon" href="#" />
+  <style>
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .btng {
+      border: none;
+      color: rgb(0, 0, 0);
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      margin: 4px;
+      border-radius: 0;
+    }
+
+    .hover:hover {
+      background-color: #f527b7;
+      border-radius: 10px;
+    }
+
+    .btng:focus {
+      outline: 0;
+    }
+
+    .active {
+      color: white;
+      outline: none;
+      background-color: red;
+    }
+
+    .return {
+      border: none;
+      background-color: #1e06f7;
+      color: rgb(255, 255, 255);
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      margin: 4px;
+      border-radius: 0;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .return:hover {
+      background-color: #1c91f0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<div id="app">
+  <div id="container">
+    <div v-for="block in mazeData" :id="block.id" :key="block.id" :class="['tile', 'tile-'+block.type]"
+      v-bind:style="{top: block.top+'px', left: block.left+'px'}">
+    </div>
+  </div>
+</div>
+<button class="return" onclick="window.close();">Close</button>
+<script>
+  function gotoindex() {
+    location.href = "index.html"
+  }
+</script>
+<script src="js/guide.js"></script>
+</body>
+
+
+</html>
