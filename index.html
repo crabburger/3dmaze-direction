@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mazify 3D | Editor</title>
+  <meta name="description" content="Mazify 3D Editor" />
+  <script src="js/vue.min.js"></script>
+  <link rel="stylesheet" href="css/map.css" />
+  <link rel="shortcut icon" href="#" />
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="tools">
+      <div class="start">
+        <button class="btn btn-salmon" @click="clear">Start editing</button>
+        <button class="btn btn-salmon" @click="level1">Demo Map</button>
+        <button class="btn btn-salmon" @click="save">Get Link</button>
+        <!--button class="btn btn-teal" @click="gotoMaze">Go to Maze</button-->
+      </div>
+      <div class="link">
+        <div id="maze">Maze</div>
+        <div id="guide">Guide</div>
+      </div>
+      <div class="city1">
+        <a>Map Icon 1</a>
+        <button v-for="tool in tools1" type="button"
+          :class="['btn', 'btn-blue',tool.type==selectedType?'btn-active':'' ]" @click="selectedType=tool.type">
+          {{tool.label}}
+        </button>
+      </div>
+      <div class="city2">
+        <a>Map Icon 2</a>
+        <button v-for="tool in tools2" type="button"
+          :class="['btn', 'btn-blue',tool.type==selectedType?'btn-active':'' ]" @click="selectedType=tool.type">
+          {{tool.label}}
+        </button>
+      </div>
+      <div class="city3">
+        <a>Map Icon 3</a>
+        <button v-for="tool in tools3" type="button"
+          :class="['btn', 'btn-blue',tool.type==selectedType?'btn-active':'' ]" @click="selectedType=tool.type">
+          {{tool.label}}
+        </button>
+      </div>
+      <div class="city4">
+        <a>Basic</a>
+        <button v-for="tool in tools4" type="button"
+          :class="['btn', 'btn-blue',tool.type==selectedType?'btn-active':'' ]" @click="selectedType=tool.type">
+          {{tool.label}}
+        </button>
+      </div>
+    </div>
+    <div class="mapwrapper">
+      <div id="container">
+        <div v-for="block in mazeData" :id="block.id" :key="block.id" :class="['tile', 'tile-'+block.type]"
+          v-bind:style="{top: block.top+'px', left: block.left+'px'}" @mousemove="changeTile" @click="changeTile"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/editor.js"></script>
+
+</html>
